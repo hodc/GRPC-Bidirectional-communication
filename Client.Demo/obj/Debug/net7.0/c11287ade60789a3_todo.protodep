@@ -1,0 +1,2 @@
+obj/Debug/net7.0/Todo.cs \
+obj/Debug/net7.0/TodoGrpc.cs: ../Core.ProtosLibrary/todo.proto
