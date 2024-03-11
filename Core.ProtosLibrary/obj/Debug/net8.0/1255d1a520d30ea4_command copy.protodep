@@ -1,0 +1,2 @@
+obj/Debug/net8.0/Protos/Command copyGrpc.cs \
+obj/Debug/net8.0/Protos/CommandCopy.cs: Protos/command copy.proto

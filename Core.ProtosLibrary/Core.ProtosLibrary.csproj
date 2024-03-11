@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <!-- <Protobuf Include="todo.proto" AdditionalImportDirs="" GrpcServices="" /> -->
+    <Protobuf Include="Protos/*.proto" GrpcServices="Both" />
+
+
+  </ItemGroup>
+  <ItemGroup>   
+    <PackageReference Include="Google.Protobuf" Version="3.24.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.61.0" />
+  </ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

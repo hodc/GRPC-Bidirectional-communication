@@ -1,0 +1,101 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "Core.ProtosLibrary";
+
+package commands;
+
+
+service CommandService {
+  rpc SubscribeForCommands(google.protobuf.Empty) returns (stream CommandRequest);
+  // rpc SendCommand(CommandRequest) returns (CommandResponse);
+
+  rpc StreamCommands(stream CommandResponse) returns (stream CommandResponseStatus);
+  // rpc InitalizeCommand(CommandInitalizeRequest) returns (CommandInitalizeResponse);
+}
+message CommandResponseStatus {
+  string request_id = 1;
+  string status = 2;
+}
+
+message CommandManagerItem {
+  string client_id = 1;
+  CommandRequest commands = 2;
+}
+
+message CommandRequest {
+  string request_id = 1;
+  oneof command {
+    ExecuteProcessCommand execute_process_command = 2;
+    ReadFileCommand read_file_command = 3;
+    WriteFileCommand write_file_command = 4;
+    UnkownCommand unkown_command = 5;
+  }
+}
+message UnkownCommand {
+  string request_id = 1;
+  string error_message = 2;
+}
+
+message ExecuteProcessCommand {
+  string request_id = 1;
+  string process_name = 2;
+  repeated string process_arguments = 3;
+}
+
+message ReadFileCommand {
+  string request_id = 1;
+  string file_path = 2;
+}
+
+message WriteFileCommand {
+  string request_id = 1;
+  string file_path = 2;
+  bytes content = 3;
+}
+
+message CommandResponse {
+  string request_id = 1;
+  oneof response_data {
+    ExecuteProcessResponse execute_process_response = 2;
+    ReadFileResponse read_file_response = 3;
+    WriteFileResponse write_file_response = 4;
+  }
+}
+
+message ExecuteProcessResponse {
+  int32 exit_code = 1;
+  string stdout = 2;
+  string stderr = 3;
+}
+
+message ReadFileResponse {
+  bytes file_contents = 1;
+  string file_name = 2;
+}
+
+message WriteFileResponse {
+  bool success = 1;
+}
+
+
+/*
+message CommandRequest {
+  string client_id = 1;
+  string command_type = 2;
+    // You can add additional fields as needed for command parameters
+}
+
+service CommandService {
+  rpc StreamCommands(stream CommandRequest) returns (stream CommandResponse);
+}
+
+
+message CommandResponse {
+  string status = 1;
+  // You can add additional fields as needed for response data
+}
+
+
+*/

@@ -1,0 +1,2 @@
+obj\Debug\net7.0\Protos/Command.cs \
+obj\Debug\net7.0\Protos/CommandGrpc.cs: Protos/command.proto

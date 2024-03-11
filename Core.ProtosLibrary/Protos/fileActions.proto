@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "Core.ProtosLibrary";
+
+package fileActions;
+
+service FileActionsService {
+  rpc GetFile (stream fileUploadRequest) returns (fileUploadResponse){}
+  rpc StreamData (stream fileUploadRequest) returns (fileUploadResponse){}
+  
+}
+
+message fileUploadRequest {
+  string file_name = 1;
+  bytes content = 2;
+}
+
+
+message fileUploadResponse {
+  string status = 1; 
+}

@@ -1,0 +1,2 @@
+obj\Debug\net7.0\Protos/FileActions.cs \
+obj\Debug\net7.0\Protos/FileActionsGrpc.cs: Protos/fileActions.proto
