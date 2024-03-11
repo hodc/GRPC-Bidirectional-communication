@@ -1,0 +1,37 @@
+[
+    {
+        "ClientId": "aaaa-aaaa-aaaa-aaaa",
+        "Commands": {
+            "RequestId": "1234-aaaa-aaaa-aaaa",
+            "ExecuteProcessCommand": {
+                "ProcessName": "test",
+                "ProcessArguments": [
+                    "arg1",
+                    "arg2"
+                ]
+            }
+        }
+    },
+    {
+        "ClientId": "aaaa-aaaa-aaaa-aaaa",
+        "Commands": {
+            "RequestId": "2222-aaaa-aaaa-aaaa",
+            "ReadFileCommand": {
+                "FilePath": "/path/to/file"
+            }
+        }
+    },
+    {
+        "ClientId": "aaaa-aaaa-aaaa-aaaa",
+        "WriteFileCommand": {
+            "RequestId": "3333-aaaa-aaaa-aaaa",
+            "FilePath": "/path/to/file",
+            "Content": [
+                116,
+                101,
+                115,
+                116
+            ]
+        }
+    }
+]

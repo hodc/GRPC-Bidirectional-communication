@@ -1,0 +1,2 @@
+obj/Debug/net8.0/FileActions.cs \
+obj/Debug/net8.0/FileActionsGrpc.cs: ../Core.ProtosLibrary/fileActions.proto
